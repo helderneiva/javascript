@@ -42,11 +42,27 @@ section{
 }
 
 div{
-    padding: 8px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
 }
 
-input#botao{
-    height: 25px;
+#ano-nascimento {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+#botao{
+    width: 100%;
+}
+
+#botao input {
+    display: inline-block;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
 }
 
 footer{
