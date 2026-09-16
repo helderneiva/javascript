@@ -38,11 +38,12 @@ section{
     margin: auto;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.466);
     color: black;
-    align-items: center;
+    align-items: flex-start;
 }
 
 div{
     padding: 8px;
+    width: 100%;
 }
 
 footer{
