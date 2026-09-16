@@ -41,38 +41,8 @@ section{
     align-items: center;
 }
 
-div#dados{
+div{
     padding: 8px;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 12px;
-}
-
-div#dados p {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 10px;
-     
-}
-
-p#botao {
-    height: 28px;
-}
-
-div#dados input {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-}
-
-div#dados input[type="button"]{
-    width: 75px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.8em;
 }
 
 footer{
