@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML</title>
+</head>
+<body>
+    <script>
+        //Metodo antiquado e nao mais usado 
+        setTimeout(function() {
+        let request = new XMLHttpRequest();
+        request.open('GET','https://jsonplaceholder.typicode.com/todos/1', true);
+        
+        request.onload = function() {
+            if(this.status >= 200 && this.status < 400) {
+                //request foi feita com sucesso!
+                let data = JSON.parse(this.response);
+                console.log(data)
+            } else {
+                //error
+            }
+        }
+
+        request.onerror = function() {
+
+        }
+
+        request.send();
+        }, 2000);
+
+    </script>
+</body>
+</html>
