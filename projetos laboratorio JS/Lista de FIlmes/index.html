@@ -3,14 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Filmes</title>
+    <title>CineList Sinergy</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <script src="https://kit.fontawesome.com/2fb14b2086.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
+    <nav class="floating-nav">
         
-    </div>
-    
-    <script src="script.js"></script>
+        <button type="button" class="nav-btn" data-tooltip="Início">
+            <i class="fa-solid fa-house"></i>
+        </button>
+
+        <button type="button" class="nav-btn" data-tooltip="Buscar Filme">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button type="button" class="nav-btn" data-tooltip="Filmes em Alta">
+            <i class="fa-solid fa-fire"></i>
+        </button>
+
+        <button type="button" class="nav-btn" data-tooltip="Mais Votados">
+            <i class="fa-solid fa-trophy"></i>
+        </button>
+
+        <button type="button" class="nav-btn" data-tooltip="Próximas Estreias">
+            <i class="fa-solid fa-calendar-days"></i>
+        </button>
+
+        <button type="button" class="nav-btn" data-tooltip="Alterar Tema">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+    </nav>
+
+    <header class="app-header">
+        <h1>Cine Feed</h1>
+    </header>
+
+    <main class="app-main">
+
+        <section id="apresentacao">
+
+            <h2 id="hero-title">Do Código à Tela</h2>
+            <p> O <strong>CineFeed</strong> é uma aplicação de alta performance que demonstra a manipulação avançada do DOM <br> através de requisições assíncronas feitas à API do TMDB. Cada card abaixo foi renderizado <br> utilizando técnicas de <em>DocumentFragment</em> para garantir máxima fluidez visual e consumo inteligente de dados.</p>
+        </section>
+
+        <section class="movies-section">
+            <h2 id="section-title">Filmes Mais Lucrativos do Cinema</h2>
+            
+            <ul id="movies-list" class="movies-list">
+            
+            </ul>
+        </section>
+    </main>
+
+     <footer class="app-footer">
+        <p>Projeto desenvolvido por <a href="https://github.com/helderneiva" target="_blank" rel="noopener noreferrer">Helder Neiva</a>.</p>
+    </footer>
+
+    <script src="script.js" type="module"></script>
 </body>
 </html>
