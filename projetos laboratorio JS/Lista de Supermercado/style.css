@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --fundo-principal: #f1f6f2;
+  --fundo-card: #ffffff;
+  --texto: #0a2512;
+  --texto-inverso: #ffffff;
+  --borda: #cbd5e1;
+  --destaque: #00b451;
+  --destaque-hover: #009341;
+  --destaque-inverso: #e64949;
+  --destaque-inverso-hover: #c42b2b;
+}
+
+body{
+  background-color: var(--fundo-principal);
+  color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding-bottom: 40px;
+}
+
+header {
+    background-color: var(--destaque);
+    padding: 15px 0px;
+    text-align: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+header h1{
+    color: var(--texto-inverso);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.container-principal {
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.lista-cadastro {
+    background-color: var(--fundo-card);
+    border: 1px solid rgba(203, 213, 225, 0.568);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.lista-cadastro input[type="text"]:focus,
+.lista-cadastro input[type="number"]:focus {
+  border-color: var(--destaque);
+}
+
+.lista-cadastro input[type="text"] {
+  flex: 3;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  color: var(--texto);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.lista-cadastro input[type="number"] {
+    flex: 1;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    color: var(--texto);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.lista-cadastro input[type="submit"] {
+  background-color: var(--destaque);
+  color: var(--texto-inverso);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.lista-cadastro input[type="submit"]:hover {
+  background-color: #8fe6a9;
+  color: var(--destaque-hover);
+}
+
+.lista-cadastro input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.lista-produto{
+  margin-bottom: 20px;
+}
+
+.item-produto {
+  background-color: var(--fundo-card);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.soma{
+    background-color: var(--fundo-card);
+    border-radius: 8px;
+    padding: 15px 20px;
+    text-align: left;
+    margin-bottom: 25px;
+    border-left: 7px solid var(--destaque);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.308);
+    transition: all 0.5s ease-out; 
+}
+
+.soma:hover {
+  border-left-width: 11px; 
+  transform: translateY(-6px); 
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.445);
+}
+
+.soma h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.acao {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-limpar {
+  background-color: transparent;
+  color: var(--destaque-inverso);
+  border: 2px solid var(--destaque-inverso);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  width: auto; 
+}
+
+.btn-limpar:hover {
+  background-color: var(--destaque-inverso-hover);
+  border: 2px solid var(--destaque-inverso-hover);
+  color: var(--texto-inverso);
+}
+
+.btn-limpar:active {
+  transform: scale(0.98);
+}
