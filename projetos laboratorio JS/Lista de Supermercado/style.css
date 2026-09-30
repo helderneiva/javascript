@@ -65,7 +65,7 @@ header h1{
   border: 1px solid var(--borda);
   border-radius: 10px;
   padding: 12px;
-  font-size: 1rem;
+  font-size: 1em;
   color: var(--texto);
   outline: none;
   transition: border-color 0.2s;
@@ -76,7 +76,7 @@ header h1{
     border: 1px solid var(--borda);
     border-radius: 10px;
     padding: 12px;
-    font-size: 1rem;
+    font-size: 1em;
     color: var(--texto);
     outline: none;
     transition: border-color 0.2s;
