@@ -80,6 +80,14 @@ header h1{
     color: var(--texto);
     outline: none;
     transition: border-color 0.2s;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.lista-cadastro input[type="number"]::-webkit-outer-spin-button,
+.lista-cadastro input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .lista-cadastro input[type="submit"] {
@@ -169,4 +177,30 @@ header h1{
 
 .btn-limpar:active {
   transform: scale(0.98);
+}
+
+@media screen and (max-width: 580px) {
+  .lista-cadastro {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .lista-cadastro input[type="text"],
+  .lista-cadastro input[type="number"],
+  .lista-cadastro input[type="submit"] {
+    width: 100%;
+    flex: none; 
+  }
+
+  .acao {
+    display: flex;
+    justify-content: center;
+    padding: 0px 16px;
+  }
+
+  .btn-limpar {
+    width: 100%;
+    text-align: center;
+  }
 }
