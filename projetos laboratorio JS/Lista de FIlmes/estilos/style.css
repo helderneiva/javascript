@@ -16,7 +16,7 @@
   --destaque-inverso: #b20710;
   
   --fonte-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --fonte-titulos: 'Montserrat', sans-serif;
+  --fonte-titulos: 'Bebas Neue', sans-serif;
 
   --transicao: all 0.3s ease;
 }
@@ -44,29 +44,14 @@ body.light-theme {
 }
 
 body{
-    background-color: var(--fundo-principal);
-    color: var(--texto);
-    font-family: var(--fonte-principal);
-    font-size: 1em;
-    line-height: 1.6;
-    padding-left: 90px;
-    padding-right: 20px;
-    transition: var(--transicao);
+  background-color: var(--fundo-principal);
+  color: var(--texto);
+  font-family: var(--fonte-principal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-left: 80px;
+  transition: var(--transicao);
 }
 
-.flotaing-nav{
-    position: fixed;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    background-color: var(--fundo-card);
-    border: 1px solid var(--borda);
-    border-radius: 30px;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    transition: var(--transicao);
-}

@@ -8,35 +8,43 @@
     <script src="https://kit.fontawesome.com/2fb14b2086.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="floating-nav">
-        
-        <button type="button" class="nav-btn" data-tooltip="Início">
-            <i class="fa-solid fa-house"></i>
-        </button>
-
-        <button type="button" class="nav-btn" data-tooltip="Buscar Filme">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-
-        <button type="button" class="nav-btn" data-tooltip="Filmes em Alta">
-            <i class="fa-solid fa-fire"></i>
-        </button>
-
-        <button type="button" class="nav-btn" data-tooltip="Mais Votados">
-            <i class="fa-solid fa-trophy"></i>
-        </button>
-
-        <button type="button" class="nav-btn" data-tooltip="Próximas Estreias">
-            <i class="fa-solid fa-calendar-days"></i>
-        </button>
-
-        <button type="button" class="nav-btn" data-tooltip="Alterar Tema">
-            <i class="fa-solid fa-circle-half-stroke"></i>
-        </button>
+    <nav class="floating-nav" aria-label="Navegação principal">
+        <ul>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Início" aria-label="Início">
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Buscar Filme" aria-label="Buscar Filme">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Filmes em Alta" aria-label="Filmes em Alta">
+                    <i class="fa-solid fa-fire" aria-hidden="true"></i>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Mais Votados" aria-label="Mais Votados">
+                    <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Próximas Estreias" aria-label="Próximas Estreias">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="nav-btn" data-tooltip="Alterar Tema" aria-label="Alterar Tema">
+                    <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                </button>
+            </li>
+        </ul>
     </nav>
 
     <header class="app-header">
@@ -45,18 +53,29 @@
 
     <main class="app-main">
 
-        <section id="apresentacao">
-
+        <section id="apresentacao" aria-labelledby="hero-title">
             <h2 id="hero-title">Do Código à Tela</h2>
-            <p> O <strong>CineFeed</strong> é uma aplicação de alta performance que demonstra a manipulação avançada do DOM <br> através de requisições assíncronas feitas à API do TMDB. Cada card abaixo foi renderizado <br> utilizando técnicas de <em>DocumentFragment</em> para garantir máxima fluidez visual e consumo inteligente de dados.</p>
+            <p> O <strong>CineFeed</strong> é uma aplicação de alta performance que demonstra a manipulação avançada do DOM através de requisições assíncronas feitas à API do TMDB. <br> Cada card abaixo foi renderizado utilizando técnicas de <em>DocumentFragment</em> para garantir máxima fluidez visual e consumo inteligente de dados.</p>
+
+        <section class="movies-section" aria-labelledby="title-billing">
+            <h2 id="title-billing">Maiores Bilheterias do Cinema</h2>
+            <div id="billing-list" class="movies-grid" data-loading="true">
+                <!-- Cards renderizados via JS aqui -->
+            </div>
         </section>
 
-        <section class="movies-section">
-            <h2 id="section-title">Filmes Mais Lucrativos do Cinema</h2>
-            
-            <ul id="movies-list" class="movies-list">
-            
-            </ul>
+        <section class="movies-section" aria-labelledby="title-streaming-br">
+            <h2 id="title-streaming-br"> Mais Assistidos no Brasil</h2>
+            <div id="streaming-br-list" class="movies-grid" data-loading="true">
+                <!-- Cards renderizados via JS aqui -->
+            </div>
+        </section>
+
+        <section class="movies-section" aria-labelledby="title-brazilian-best">
+            <h2 id="title-brazilian-best">Filmes Nacionais Mais Bem Avaliados</h2>
+            <div id="brazilian-best-list" class="movies-grid" data-loading="true">
+                <!-- Cards renderizados via JS aqui -->
+            </div>
         </section>
     </main>
 
