@@ -4,42 +4,147 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const menuToggle = document.getElementById('menuToggle');
     const floatingNav = document.querySelector('.floating-nav');
+    const themeBtn = document.querySelector('.nav-btn[data-tooltip="Alterar Tema"]');
 
-    if (menuToggle && floatingNav) {
-        menuToggle.addEventListener('click', () => {
-            const isActive = floatingNav.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isActive);
-            
-            const icon = menuToggle.querySelector('i');
+    /**
+     * 1. GERENCIAMENTO DE MENU HAMBÚRGUER (MOBILE)
+     */
+    const toggleMenu = (forceClose = null) => {
+        if (!menuToggle || !floatingNav) return;
+        
+        const isActive = forceClose !== null ? !forceClose : floatingNav.classList.toggle('active');
+        
+        if (forceClose === true) floatingNav.classList.remove('active');
+        
+        menuToggle.setAttribute('aria-expanded', isActive);
+        const icon = menuToggle.querySelector('i');
+        
+        if (icon) {
             if (isActive) {
                 icon.classList.replace('fa-bars', 'fa-xmark');
             } else {
                 icon.classList.replace('fa-xmark', 'fa-bars');
             }
-        });
+        }
+    };
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => toggleMenu());
     }
 
-    const themeBtn = document.querySelector('.nav-btn[data-tooltip="Alterar Tema"]');
-    
-    // Lê a memória do navegador para saber se o usuário já tinha escolhido o tema claro antes
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-    }
+    /**
+     * 2. ROLAGEM PROGRAMÁTICA AVANÇADA (SMOOTH SCROLL & FOCUS MANAGEMENT)
+     * Demonstra proficiência em manipulação de eventos e acessibilidade.
+     */
+    const setupNavigation = () => {
+        // Mapeamento semântico dos botões para seus respectivos IDs alvos
+        const navigationMap = {
+            'Início': '.apresentacao',
+            'Maiores Bilheterias': '#title-box-office',
+            'Mais Bem Avaliados': '#title-top-rated',
+            'Mais Assistidos no Brasil': '#title-popular-br',
+            'Filmes em Alta': '#title-trending',
+            'Próximos Lançamentos': '#title-upcoming'
+        };
 
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            // Liga/desliga a classe light-theme no body do HTML
-            const isLight = document.body.classList.toggle('light-theme');
-            
-        
-            if (isLight) {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
+        const navButtons = document.querySelectorAll('.nav-btn[data-tooltip]');
+
+        navButtons.forEach(button => {
+            const tooltipText = button.getAttribute('data-tooltip');
+            const targetSelector = navigationMap[tooltipText];
+
+            // Ignora o botão de alternar tema do fluxo de navegação
+            if (!targetSelector) return;
+
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(targetSelector);
+                if (!targetElement) return;
+
+                // Executa a rolagem suave nativa otimizada por hardware
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Acessibilidade: Move o foco do teclado para o elemento alvo
+                targetElement.setAttribute('tabindex', '-index');
+                targetElement.focus({ preventScroll: true });
+
+                // Fecha o menu hamburguer caso esteja no mobile
+                toggleMenu(true);
+            });
         });
-    }
+    };
+
+    /**
+     * 3. INTERSECTION OBSERVER API (RECURSO AVANÇADO)
+     * Detecta dinamicamente qual seção está na tela e adiciona feedback visual no menu.
+     */
+    const setupScrollObserver = () => {
+        const sections = document.querySelectorAll('.apresentacao, .movies-section');
+        const navButtons = document.querySelectorAll('.nav-btn[data-tooltip]');
+
+        const observerOptions = {
+            root: null, // Usa a viewport do navegador
+            rootMargin: '-20% 0px -60% 0px', // Ativa quando a seção ocupa a área central da tela
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const isHome = entry.target.classList.contains('apresentacao');
+                    
+                    navButtons.forEach(button => {
+                        const tooltip = button.getAttribute('data-tooltip');
+                        
+                        // Validação cruzada para iluminar o botão do menu correspondente
+                        const isMatch = 
+                            (isHome && tooltip === 'Início') ||
+                            (id === 'title-box-office' && tooltip === 'Maiores Bilheterias') ||
+                            (id === 'title-top-rated' && tooltip === 'Mais Bem Avaliados') ||
+                            (id === 'title-popular-br' && tooltip === 'Mais Assistidos no Brasil') ||
+                            (id === 'title-trending' && tooltip === 'Filmes em Alta') ||
+                            (id === 'title-upcoming' && tooltip === 'Próximos Lançamentos');
+
+                        if (isMatch) {
+                            button.classList.add('active-nav');
+                        } else {
+                            button.classList.remove('active-nav');
+                        }
+                    });
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
+    };
+
+    /**
+     * 4. GERENCIAMENTO DE TEMA (DARK/LIGHT MODE)
+     */
+    const initTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        }
+    };
+
+    // Inicialização dos módulos do ecossistema do App
+    initTheme();
+    setupNavigation();
+    setupScrollObserver();
 
     async function fetchMovies(url) {
         try {
@@ -67,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const fragment = document.createDocumentFragment();
 
-        movies.slice(0, 6).forEach(movie => {
+        movies.slice(0, 10).forEach(movie => {
             const card = document.createElement('article');
             card.classList.add('movie-card');
 

@@ -172,6 +172,7 @@ body {
   letter-spacing: 2px;
   color: var(--destaque);
   text-transform: uppercase;
+  text-align: center;
 }
 
 .app-main {
@@ -186,24 +187,24 @@ body {
   background-color: var(--fundo-card);
   border: 1px solid var(--borda);
   border-radius: 16px;
-  padding: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
 
 .apresentacao h2 {
   font-family: var(--fonte-titulos);
-  font-size: 1.6em;
+  font-size: 1.8em;
   letter-spacing: 1px;
   margin-bottom: 12px;
-  color: var(--texto-inverso);
+  color: var(--destaque); 
+  text-transform: uppercase;
 }
 
 .apresentacao p {
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 1.2em;
+  line-height: 1.8;
   color: var(--texto);
-  max-width: 900px;
 }
 
 .apresentacao strong {
@@ -402,6 +403,16 @@ body {
   padding: 20px;
   margin-bottom: 35px;
   }
+
+  .apresentacao h2 {
+    font-size: 1.6em;
+  }
+
+  .apresentacao p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
   .movies-grid {
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
