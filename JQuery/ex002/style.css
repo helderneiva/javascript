@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgray;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+    padding-top: 50px;
+}
+
+#artigo1, #artigo2 {
+    flex: 1;
+    margin: 0px 40px;
+    width: 150px;
+}
+
+h2 {
+    font-size: 1.6em;
+    font-weight: 580;
+    background-color: darkslategray;
+    color: aliceblue;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease; 
+}
+
+h2:hover {
+    background-color: aliceblue;
+    color: darkslategray;
+}
+
+.container p {
+    font-size: 1.2em;
+    font-weight: 460;
+    text-align: justify;
+    background-color: gray;
+    color: white;
+    padding: 15px 10px 10px 10px;
+    display: none;
+    border-radius: 8px;
+}
